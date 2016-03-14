@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 Julai 2010 11:40:18 AM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.books.management.entity.BooksEntity" 
+		table="BooksEntity" catalog="BookManagementDB">
+        <id name="id" >
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+         <property name="bookId" >
+            <column name="bookId"  />
+        </property>
+        <property name="bookname" >
+            <column name="bookname" />
+        </property>
+        <property name="category" >
+            <column name="category" />
+        </property>
+         <property name="author" >
+            <column name="author" />
+        </property>
+         <property name="price" >
+            <column name="price" />
+        </property>
+         <property name="numberOfbooks" >
+            <column name="numberOfbooks" />
+        </property>
+         <property name="publishedDate" >
+            <column name="publishedDate"  />
+        </property>
+        <property name="createdDate" >
+            <column name="createdDate" />
+        </property>
+        <property name="modifiedDate" >
+            <column name="modifiedDate"  />
+        </property>
+    </class>
+</hibernate-mapping>

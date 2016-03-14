@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 
+	2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> -->
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="" />
+	<package name="default" namespace="/"
+		extends="struts-default,json-default,action-default">
+		<interceptors>
+		<interceptor class="com.books.management.action.LoginInterceptor"
+			name="loginInterceptor">
+		</interceptor>
+		<interceptor-stack name="loginStack">
+			<interceptor-ref name="loginInterceptor" />
+			<interceptor-ref name="defaultStack" />
+		</interceptor-stack>
+	</interceptors>
+	
+		
+		
+		<action name="login" class="com.books.management.action.LoginAction">
+			<result name="adminsuccess">pages/adminHome.jsp</result>
+			<result name="userSuccess">pages/userHome.jsp</result>
+			<result name="input">pages/index.jsp</result>
+			<result name="error">pages/index.jsp</result>
+		</action>
+		<action name="register" class="com.books.management.action.RegisterAction" method="userRegister">
+			<result name="success">pages/register.jsp</result>
+			<result name="input">pages/register.jsp</result>
+			<result name="error">pages/register.jsp</result>
+		</action>
+		<action name="newuser">
+			<result name="success">pages/register.jsp</result>
+			<result name="input">pages/register.jsp</result>
+			<result name="error">pages/register.jsp</result>
+		</action>
+		<action name="forgotPassword" class="com.books.management.action.RegisterAction" method="userRegister">
+			<result name="success">pages/resetPassword.jsp</result>
+			<result name="input">pages/forgotPassword.jsp</result>
+			<result name="error">pages/forgotPassword.jsp</result>
+		</action>
+		<action name="resetPassword" class="com.books.management.action.RegisterAction" method="updatePassword">
+			<result name="success">pages/resetPassword.jsp</result>
+			<result name="input">pages/forgotPassword.jsp</result>
+			<result name="error">pages/forgotPassword.jsp</result>
+		</action>
+		<action name="updateadminPassword" >
+		    <!--  <interceptor-ref name="loginStack" /> -->
+			<result name="success">pages/adminUpdatePassword.jsp</result>
+			<result name="input">pages/adminUpdatePassword.jsp</result>
+			<result name="error">pages/adminUpdatePassword.jsp</result>
+		</action>
+		<action name="updateadminpassword" class="com.books.management.action.ResetPasswordAction" method="updatenewpassword" >
+		    <!--  <interceptor-ref name="loginStack" /> -->
+			<result name="success">pages/adminUpdatePassword.jsp</result>
+			<result name="input">pages/adminUpdatePassword.jsp</result>
+			<result name="error">pages/adminUpdatePassword.jsp</result>
+		</action>
+		<action name="changeUserPassword" >
+		    <!--  <interceptor-ref name="loginStack" /> -->
+			<result name="success">pages/userUpdatePassword.jsp</result>
+			<result name="input">pages/userUpdatePassword.jsp</result>
+			<result name="error">pages/userUpdatePassword.jsp</result>
+		</action>
+		<action name="updateuserpassword" class="com.books.management.action.ResetPasswordAction" method="updatenewpassword" >
+		    <!--  <interceptor-ref name="loginStack" /> -->
+			<result name="success">pages/userUpdatePassword.jsp</result>
+			<result name="input">pages/userUpdatePassword.jsp</result>
+			<result name="error">pages/userUpdatePassword.jsp</result>
+		</action>
+		<action name="adminLogout" class="com.books.management.action.LogoutAction" >
+			<result name="success">pages/index.jsp</result>
+			<result name="input">pages/index.jsp</result>
+			<result name="error">pages/index.jsp</result>
+		</action>
+		
+		<action name="logintab" class="com.books.management.action.ATagAction" >
+			<result name="success">pages/index.jsp</result>
+			<result name="input">pages/index.jsp</result>
+			<result name="error">pages/index.jsp</result>
+		</action>
+		<action name="registertab" class="com.books.management.action.ATagAction" >
+			<result name="success">pages/register.jsp</result>
+			<result name="input">pages/register.jsp</result>
+			<result name="error">pages/register.jsp</result>
+		</action>
+		<action name="addbook" class="com.books.management.action.ATagAction" >
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error">pages/adminHome.jsp</result>
+		</action>	
+		<action name="addBookDetails" class="com.books.management.action.BookAction" method="addBookDetails">
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error">pages/adminHome.jsp</result>
+		</action>
+		<action name="bookDetailsData" method="getBookDetailsList"
+			class="com.books.management.action.JqGridDisplayAction">
+			<result name="success" type="json"></result>
+		</action>	
+		
+		<action name="updateEventDetails" class="com.books.management.action.BookAction" method="updateBookDetails">
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error">pages/adminHome.jsp</result>
+		</action>
+		<action name="Producthome" class="com.books.management.action.BookCategoryAction" method="getAllBookDetails" >
+			<result name="success">pages/userHome.jsp</result>
+			<result name="input">pages/userHome.jsp</result>
+			<result name="error">pages/userHome.jsp</result>
+		</action>
+		<!-- get all bookdetails list -->
+		<action name="allBookDetails" class="com.books.management.action.BookCategoryAction" method="getAllBookDetails">
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error">pages/adminHome.jsp</result>
+		</action>
+		<action name="viewpage" class="com.books.management.action.BookCategoryAction" method="getAllBookDetails" >
+			<result name="success">pages/view.jsp</result>
+			<result name="input">pages/view.jsp</result>
+			<result name="error">pages/view.jsp</result>
+		</action>		
+		
+		<action name="buybookData" class="com.books.management.action.BookOrderAction" method="orderBookdetails" >
+			<result name="success">pages/buybook.jsp</result>
+			<result name="input">pages/buybook.jsp</result>
+			<result name="error">pages/buybook.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>	
+		
+			<action name="studentInternal" class="com.books.management.action.JqGridDisplayAction" method="getOrderList">
+			<result name="success">pages/salesDetails.jsp</result>
+			<result name="input">pages/salesDetails.jsp</result>
+			<result name="error">pages/salesDetails.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="salesData" class="com.books.management.action.JqGridDisplayAction" method="getOrderList">
+			<result name="success">pages/salesDetails.jsp</result>
+			<result name="input">pages/salesDetails.jsp</result>
+			<result name="error">pages/salesDetails.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="stockData" class="com.books.management.action.JqGridDisplayAction" method="getBooksOutList">
+			<result name="success">pages/outOffStock.jsp</result>
+			<result name="input">pages/outOffStock.jsp</result>
+			<result name="error">pages/outOffStock.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="purchasedData" class="com.books.management.action.JqGridDisplayAction" method="getUserSalesData">
+			<result name="success">pages/userSalesDetails.jsp</result>
+			<result name="input">pages/userSalesDetails.jsp</result>
+			<result name="error">pages/userSalesDetails.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="forgotpass" class="com.books.management.action.ATagAction" >
+			<result name="success">pages/forgotPassword.jsp</result>
+			<result name="input">pages/forgotPassword.jsp</result>
+			<result name="error">pages/forgotPassword.jsp</result>
+		</action>		
+		</package>
+</struts>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 Julai 2010 11:40:18 AM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.books.management.entity.UserEntity" 
+		table="UserEntity" catalog="BookManagementDB">
+        <id name="id" >
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+         <property name="username" >
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="password" >
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="usertype" >
+            <column name="usertype" length="45" not-null="true" />
+        </property>
+         <property name="name" >
+            <column name="name" length="45" not-null="true" />
+        </property>
+         <property name="emailId" >
+            <column name="emailId" length="45" not-null="true" />
+        </property>
+         <property name="mobilenumber" >
+            <column name="mobilenumber" length="45" not-null="true" />
+        </property>
+         <property name="gender" >
+            <column name="gender" length="45" not-null="true" />
+        </property>
+        <property name="createdDate" >
+            <column name="createdDate" length="45" not-null="true" />
+        </property>
+        <property name="modifiedDate" >
+            <column name="modifiedDate" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
