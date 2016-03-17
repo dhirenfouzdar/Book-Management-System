@@ -16,9 +16,7 @@ maven
 apache tomcat 1.7
 eclipse keepler
 mySQl 5.1
-```
-Give examples
-```
+
 
 
 
